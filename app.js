@@ -29,7 +29,7 @@ const examples = {
     sales: {
         title: 'Ventas Mensuales 2025',
         labels: 'Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sept, Oct, Novi, Dici',
-        values: '45000, 52000, 48000, 61000, 58000, 67000, 72000, 69000'
+        values: '45000, 52000, 48000, 61000, 58000, 67000, 72000, 69000, 85641, 48965, 25869, 48659'
     },
     expenses: {
         title: 'Gastos por Departamento',
