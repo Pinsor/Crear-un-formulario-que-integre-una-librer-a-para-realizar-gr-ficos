@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Avanzado de Gráficos</title>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- CSS externo -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📊 Sistema Avanzado de Gráficos</h1>
+            <p>Crea visualizaciones profesionales en segundos</p>
+        </div>
+
+        <div class="toolbar">
+            <button class="btn-primary" onclick="generateChart()">✨ Generar Gráfico</button>
+            <button class="btn-success" onclick="exportChart()">💾 Exportar PNG</button>
+            <button class="btn-secondary" onclick="clearForm()">🗑️ Limpiar</button>
+            <button class="btn-secondary" onclick="toggleHistory()">📜 Historial</button>
+        </div>
+
+        <div id="alertContainer"></div>
+
+        <div class="main-grid">
+
+            <div class="panel">
+                <h2>⚙️ Configuración</h2>
+
+                <div class="form-group">
+                    <label>Título del Gráfico</label>
+                    <input type="text" id="chartTitle" placeholder="Ej: Ventas del Año 2025">
+                </div>
+
+                <div class="form-group">
+                    <label>Tipo de Gráfico</label>
+                    <select id="chartType">
+                        <option value="bar">📊 Barras</option>
+                        <option value="line">📈 Líneas</option>
+                        <option value="pie">🥧 Circular</option>
+                        <option value="doughnut">🍩 Dona</option>
+                        <option value="radar">🎯 Radar</option>
+                        <option value="polarArea">⭕ Área Polar</option>
+                        <option value="horizontalBar">↔️ Barras Horizontales</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Etiquetas</label>
+                    <textarea id="chartLabels" placeholder="Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre"></textarea>
+                    <div class="hint">Separe cada etiqueta con coma</div>
+                </div>
+
+                <div class="form-group">
+                    <label>Valores</label>
+                    <textarea id="chartValues" placeholder="100, 150, 200, 180"></textarea>
+                    <div class="hint">Ingrese números separados por comas</div>
+                </div>
+
+                <div class="form-group">
+                    <label>Esquema de Colores</label>
+                    <div class="color-schemes" id="colorSchemes"></div>
+                </div>
+
+                <div class="examples">
+                    <label>⚡ Ejemplos Rápidos</label>
+                    <div class="example-grid">
+                        <button class="example-btn" onclick="loadExample('sales')">💰 Ventas</button>
+                        <button class="example-btn" onclick="loadExample('expenses')">💸 Gastos</button>
+                        <button class="example-btn" onclick="loadExample('users')">👥 Usuarios</button>
+                        <button class="example-btn" onclick="loadExample('performance')">⚡ Rendimiento</button>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="panel">
+                    <h2 id="currentTitle">📈 Vista Previa</h2>
+                    <div class="chart-wrapper">
+                        <canvas id="myChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="stats-grid" id="statsGrid"></div>
+
+                <div class="panel" style="margin-top: 30px;">
+                    <h2>📋 Tabla de Datos</h2>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Etiqueta</th>
+                                <th>Valor</th>
+                                <th>Porcentaje</th>
+                                <th>Promedio</th>
+                            </tr>
+                        </thead>
+                        <tbody id="dataTableBody">
+                            <tr>
+                                <td colspan="4" class="empty-state">
+                                    <div>
+                                        <p>📊 No hay datos para mostrar</p>
+                                        <small>Ingrese datos y genere un gráfico</small>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JavaScript externo -->
+    <script src="app.js"></script>
+</body>
+</html>
